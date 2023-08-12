@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block title %}
+Edit
+{% endblock %}
+
+{% block body %}
+<h3>Edit</h3>
+<form action="{% url 'edit' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="t" placeholder="Title" value="{{title}}" required>
+    </div>
+
+    <div class="form-group">
+        <label>Content</label>
+        <textarea class="form-control" name="c" rows="10" required>{{c}}</textarea>
+    </div>
+    <input class="btn btn-primary" type="submit">
+
+</form>
+
+
+{% endblock %}
